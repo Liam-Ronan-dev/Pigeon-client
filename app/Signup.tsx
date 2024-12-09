@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView } from "react-native";
-import RegisterVectorSVG from "@/assets/images/registerVector.svg";
-import RegisterForm from "../components/RegisterForm";
+import RegisterVectorSVG from "../assets/images/registerVector.svg";
+import RegisterForm from "@/components/RegisterForm";
 
 const Signup = () => {
   return (

@@ -1,10 +1,14 @@
 import { View, Text, TextInput } from "react-native";
-import { useState } from "react";
-import CustomButton from "../components/CustomButton";
+import { useContext, useState } from "react";
+import CustomButton from "./CustomButton";
+import { AuthContext } from "@/contexts/AuthContext";
+import { useRouter } from "expo-router";
 
-const RegisterForm = () => {
+const LoginForm = () => {
+  const { login } = useContext(AuthContext);
+  const router = useRouter();
+
   const [form, setForm] = useState({
-    username: "",
     email: "",
     password: "",
   });
@@ -18,22 +22,19 @@ const RegisterForm = () => {
     }));
   };
 
-  return (
-    <View className="flex-1 justify-center items-center mb-8 mt-8">
-      {/* Form Container */}
-      {/* Username Field */}
-      <View className="w-3/4 mb-6">
-        <Text className="text-white font-medium mb-2">Username</Text>
-        <TextInput
-          className="w-full bg-white rounded-md p-5 text-black"
-          placeholder="Username"
-          placeholderTextColor="#9CA3AF"
-          value={form.username}
-          onChangeText={(value) => handleChange("username", value)}
-        />
-      </View>
+  const handleLogin = async () => {
+    setError("");
+    try {
+      await login(form.email, form.password);
+      router.push("/home");
+    } catch (error: any) {
+      setError(error.message);
+      console.log(`Error: ${error}`);
+    }
+  };
 
-      {/* Email Field */}
+  return (
+    <View className="flex-1 justify-center items-center mb-8">
       <View className="w-3/4 mb-6">
         <Text className="text-white font-medium mb-2">Email</Text>
         <TextInput
@@ -45,7 +46,6 @@ const RegisterForm = () => {
         />
       </View>
 
-      {/* Password Field */}
       <View className="w-3/4 mb-6">
         <Text className="text-white font-medium mb-2">Password</Text>
         <TextInput
@@ -58,18 +58,18 @@ const RegisterForm = () => {
         />
       </View>
 
-      {/* Error Message */}
-      {error ? <Text className="text-red-500 text-center mb-4">{error}</Text> : null}
+      {error ? (
+        <Text className="text-red-500 text-center text-sm font-semibold mb-2">{error}</Text>
+      ) : null}
 
-      {/* Submit Button */}
       <CustomButton
-        title="Create an account"
+        title="Log in"
         textStyles="text-[#2852B6]"
-        onPress={() => console.log("Create account clicked")}
+        onPress={handleLogin}
         containerStyles="w-3/4 mb-10 mt-8"
       />
     </View>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

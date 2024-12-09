@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/Splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#154ed4"
+      "backgroundColor": "#CEC7BF"
     },
     "newArchEnabled": true,
     "ios": {
@@ -37,7 +37,8 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true

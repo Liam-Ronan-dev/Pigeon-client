@@ -1,6 +1,6 @@
 import { View, Text, SafeAreaView } from "react-native";
 import { Link, useRouter } from "expo-router";
-import CustomButton from "@/src/components/CustomButton";
+import CustomButton from "@/components/CustomButton";
 import WelcomeSVG from "@/assets/images/Welcome.svg";
 
 const Index = () => {

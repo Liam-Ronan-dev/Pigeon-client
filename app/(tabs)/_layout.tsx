@@ -6,9 +6,29 @@ import medicalSVG from "@/assets/images/medical.svg";
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: "blue" }}>
+    <Tabs
+      screenOptions={{
+        // These options apply to all tabs in this Tabs component
+        tabBarActiveTintColor: "#FC814A",
+        tabBarInactiveTintColor: "#ffffff",
+        tabBarStyle: {
+          backgroundColor: "#27282E",
+          borderTopWidth: 1,
+          borderTopColor: "#313E6D",
+          paddingTop: 10
+        },
+        headerStyle: {
+          backgroundColor: "#27282E",
+        },
+        headerTitleStyle: {
+          fontSize: 18,
+          fontWeight: "bold",
+          color: "#ffffff",
+        },
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="main"
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,

@@ -3,8 +3,8 @@ import React from "react";
 
 const index = () => {
   return (
-    <View>
-      <Text>All Races</Text>
+    <View className="flex-1 justify-center items-center">
+      <Text className="text-white text-2xl font-medium">All Races</Text>
     </View>
   );
 };

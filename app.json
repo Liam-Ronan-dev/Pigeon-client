@@ -4,6 +4,7 @@
     "slug": "pigeon-client",
     "version": "1.0.0",
     "orientation": "portrait",
+    "assetBundlePatterns": ["**/*"],
     "icon": "./assets/Splash.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",

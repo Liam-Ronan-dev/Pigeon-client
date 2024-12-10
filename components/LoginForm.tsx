@@ -26,7 +26,7 @@ const LoginForm = () => {
     setError("");
     try {
       await login(form.email, form.password);
-      router.push("/home");
+      router.push("/main");
     } catch (error: any) {
       setError(error.message);
       console.log(`Error: ${error}`);

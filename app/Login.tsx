@@ -4,7 +4,7 @@ import LoginForm from "../components/LoginForm";
 
 const Signup = () => {
   return (
-    <View className="flex-1 bg-[#154ed4]">
+    <View className="flex-1 bg-[#313E6D]">
       <SafeAreaView className="flex-1 px-1">
         <View>
           <Text className="text-center text-white text-4xl mt-10 font-bold">Login</Text>

@@ -6,7 +6,7 @@ import WelcomeSVG from "@/assets/images/Welcome.svg";
 const Index = () => {
   const router = useRouter();
   return (
-    <View className="flex-1 bg-[#154ed4]">
+    <View className="flex-1 bg-[#313E6D]">
       <SafeAreaView className="flex-1 px-1 justify-between">
         <View>
           <Text className="text-center text-white text-4xl mt-10 font-bold">SkySprint</Text>

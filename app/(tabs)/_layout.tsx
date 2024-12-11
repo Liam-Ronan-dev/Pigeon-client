@@ -1,21 +1,18 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
-import raceSVG from "@/assets/images/race.svg";
-import pigeonSVG from "@/assets/images/pigeon.svg";
-import medicalSVG from "@/assets/images/medical.svg";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        // These options apply to all tabs in this Tabs component
+        // General styles for all tabs
         tabBarActiveTintColor: "#FC814A",
         tabBarInactiveTintColor: "#ffffff",
         tabBarStyle: {
           backgroundColor: "#27282E",
           borderTopWidth: 1,
           borderTopColor: "#313E6D",
-          paddingTop: 10
+          paddingTop: 10,
         },
         headerStyle: {
           backgroundColor: "#27282E",
@@ -25,8 +22,7 @@ export default function TabLayout() {
           fontWeight: "bold",
           color: "#ffffff",
         },
-      }}
-    >
+      }}>
       <Tabs.Screen
         name="main"
         options={{
@@ -45,14 +41,52 @@ export default function TabLayout() {
         name="races/index"
         options={{
           title: "Races",
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="bed" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="flag-checkered" color={color} />,
         }}
       />
       <Tabs.Screen
         name="medicals/index"
         options={{
           title: "Medicals",
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="beer" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="stethoscope" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="pigeons/[id]/index"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="pigeons/[id]/edit"
+        options={{
+          title: "Edit Pigeon",
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="pigeons/create"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="races/[id]/index"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="races/create"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="races/[id]/edit"
+        options={{
+          title: "Edit Race",
+          href: null,
         }}
       />
     </Tabs>

@@ -89,6 +89,25 @@ export default function TabLayout() {
           href: null,
         }}
       />
+      <Tabs.Screen
+        name="medicals/[id]/index"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="medicals/create"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="medicals/[id]/edit"
+        options={{
+          title: "Edit Medical Treatment",
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }

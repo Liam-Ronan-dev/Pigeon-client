@@ -17,7 +17,10 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    ```
 
 # Notes:
-1. On edit, create, and delete - when the user is returned to all pigeons, the pigeon still shows up. Need to have the state updated in a useEffect. Look into changing the useAPI hook 
+
+1. On edit, create, and delete - when the user is returned to all pigeons, the pigeon still shows up. Need to have the state updated in a useEffect. Look into changing the useAPI hook
 2. Look at races again - positions, totalParticipants
 3. Create types for data
 4. Fix date formats
+5. check former border colour
+6. Turn search into a component

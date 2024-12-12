@@ -35,13 +35,13 @@ const RegisterForm = () => {
   };
 
   return (
-    <View className="flex-1 justify-center items-center mb-8 mt-8">
+    <View className="flex-1 justify-center items-center mb-8">
       {/* Form Container */}
       {/* Username Field */}
       <View className="w-3/4 mb-6">
         <Text className="text-white font-medium mb-2">Username</Text>
         <TextInput
-          className="w-full bg-white rounded-md p-5 text-black"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white"
           placeholder="Username"
           placeholderTextColor="#9CA3AF"
           value={form.username}
@@ -53,7 +53,7 @@ const RegisterForm = () => {
       <View className="w-3/4 mb-6">
         <Text className="text-white font-medium mb-2">Email</Text>
         <TextInput
-          className="w-full bg-white rounded-md p-5 text-black"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white"
           placeholder="Email"
           placeholderTextColor="#9CA3AF"
           value={form.email}
@@ -65,7 +65,7 @@ const RegisterForm = () => {
       <View className="w-3/4 mb-6">
         <Text className="text-white font-medium mb-2">Password</Text>
         <TextInput
-          className="w-full bg-white rounded-md p-5 text-black"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white"
           placeholder="Password"
           placeholderTextColor="#9CA3AF"
           value={form.password}
@@ -82,9 +82,9 @@ const RegisterForm = () => {
       {/* Submit Button */}
       <CustomButton
         title="Create an account"
-        textStyles="text-[#2852B6]"
+        textStyles="text-[#fff] text-xl"
         onPress={handleRegister}
-        containerStyles="w-3/4 mb-2 mt-3"
+        containerStyles="bg-[#FF9B00] w-3/4 mb-10"
       />
     </View>
   );

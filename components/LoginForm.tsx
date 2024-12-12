@@ -38,9 +38,9 @@ const LoginForm = () => {
       <View className="w-3/4 mb-6">
         <Text className="text-white font-medium mb-2">Email</Text>
         <TextInput
-          className="w-full bg-white rounded-md p-5 text-black"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white border-solid border-white"
           placeholder="Email"
-          placeholderTextColor="#9CA3AF"
+          placeholderTextColor="#94A3B8"
           value={form.email}
           onChangeText={(value) => handleChange("email", value)}
         />
@@ -49,7 +49,7 @@ const LoginForm = () => {
       <View className="w-3/4 mb-6">
         <Text className="text-white font-medium mb-2">Password</Text>
         <TextInput
-          className="w-full bg-white rounded-md p-5 text-black"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white border-solid border-white"
           placeholder="Password"
           placeholderTextColor="#9CA3AF"
           value={form.password}
@@ -64,9 +64,9 @@ const LoginForm = () => {
 
       <CustomButton
         title="Log in"
-        textStyles="text-[#2852B6]"
+        textStyles="text-[#fff] text-xl"
         onPress={handleLogin}
-        containerStyles="w-3/4 mb-10 mt-8"
+        containerStyles="bg-[#FF9B00] w-3/4 mb-10 mt-8"
       />
     </View>
   );

@@ -14,10 +14,8 @@ const CustomButton = ({
   containerStyles = "",
 }: CustomButtonProps) => {
   return (
-    <Pressable
-      className={`rounded-xl mx-5 mb-5 min-h-[62px] justify-center items-center bg-white ${containerStyles}`}
-      onPress={onPress}>
-      <Text className={`font-medium text-3xl p-2 ${textStyles}`}>{title}</Text>
+    <Pressable className={`rounded-xl bg-[#FF9B00] ${containerStyles}`} onPress={onPress}>
+      <Text className={`text-white text-center font-semibold p-2 ${textStyles}`}>{title}</Text>
     </Pressable>
   );
 };

@@ -6,16 +6,16 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         // General styles for all tabs
-        tabBarActiveTintColor: "#FC814A",
+        tabBarActiveTintColor: "#FF9B00",
         tabBarInactiveTintColor: "#ffffff",
         tabBarStyle: {
-          backgroundColor: "#27282E",
+          backgroundColor: "#171622",
           borderTopWidth: 1,
-          borderTopColor: "#313E6D",
-          paddingTop: 10,
+          borderTopColor: "#424148",
         },
         headerStyle: {
-          backgroundColor: "#27282E",
+          backgroundColor: "#171622",
+          borderBottomColor: "#171622",
         },
         headerTitleStyle: {
           fontSize: 18,
@@ -27,28 +27,28 @@ export default function TabLayout() {
         name="main"
         options={{
           title: "Home",
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome size={20} name="home" color={color} />,
         }}
       />
       <Tabs.Screen
         name="pigeons/index"
         options={{
           title: "Pigeons",
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="heart" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome size={20} name="heart" color={color} />,
         }}
       />
       <Tabs.Screen
         name="races/index"
         options={{
           title: "Races",
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="flag-checkered" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome size={20} name="flag-checkered" color={color} />,
         }}
       />
       <Tabs.Screen
         name="medicals/index"
         options={{
           title: "Medicals",
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="stethoscope" color={color} />,
+          tabBarIcon: ({ color }) => <FontAwesome size={20} name="stethoscope" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -105,6 +105,13 @@ export default function TabLayout() {
         name="medicals/[id]/edit"
         options={{
           title: "Edit Medical Treatment",
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="details/[id]/index"
+        options={{
+          title: 'Details',
           href: null,
         }}
       />

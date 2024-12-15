@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { View, Text, TextInput, ActivityIndicator } from "react-native";
+import { View, Text, TextInput, ActivityIndicator, ScrollView } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import useAPI from "@/hooks/useAPI";
@@ -66,9 +66,9 @@ const EditRace = () => {
       formattedForm,
       token,
       () => {
-        console.log('Race edited successfully');
+        console.log("Race edited successfully");
         router.push("/races");
-      }
+      },
     );
   };
 
@@ -90,67 +90,68 @@ const EditRace = () => {
   }
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView className="flex-1 p-4 bg-gray-100">
-        <Text className="text-2xl font-bold text-gray-900 mb-4">Edit Race</Text>
+    <ScrollView className="bg-[#171622]">
+      <SafeAreaProvider>
+        <SafeAreaView className="flex-1 justify-center p-4">
+          <Text className="text-2xl font-bold mb-5 mt-5 text-white">Edit Race</Text>
 
-        <TextInput
-          className="border p-2 rounded mb-4"
-          placeholder="Race name"
-          value={form.raceName}
-          onChangeText={(value) => handleInputChange("raceName", value)}
-        />
-        <TextInput
-          className="border p-2 rounded mb-4"
-          placeholder="Date (YYYY-MM-DD)"
-          value={form.date}
-          onChangeText={(value) => handleInputChange("date", value)}
-        />
-        <TextInput
-          className="border p-2 rounded mb-4"
-          placeholder="Distance"
-          value={form.distance}
-          onChangeText={(value) => handleInputChange("distance", value)}
-        />
-        <TextInput
-          className="border p-2 rounded mb-4"
-          placeholder="Positions (comma-separated)"
-          value={form.positions}
-          onChangeText={(value) => handleInputChange("positions", value)}
-        />
-        <TextInput
-          className="border p-2 rounded mb-4"
-          placeholder="Total Participants"
-          value={form.totalParticipants}
-          onChangeText={(value) => handleInputChange("totalParticipants", value)}
-        />
-        <TextInput
-          className="border p-2 rounded mb-4"
-          placeholder="Wind Speed"
-          value={form.windSpeed}
-          onChangeText={(value) => handleInputChange("windSpeed", value)}
-        />
-        <TextInput
-          className="border p-2 rounded mb-4"
-          placeholder="Wind Direction"
-          value={form.windDirection}
-          onChangeText={(value) => handleInputChange("windDirection", value)}
-        />
-        <TextInput
-          className="border p-2 rounded mb-4"
-          placeholder="Notes"
-          value={form.notes}
-          onChangeText={(value) => handleInputChange("notes", value)}
-        />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="Race name"
+            value={form.raceName}
+            onChangeText={(value) => handleInputChange("raceName", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="Date (YYYY-MM-DD)"
+            value={form.date}
+            onChangeText={(value) => handleInputChange("date", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="Distance"
+            value={form.distance}
+            onChangeText={(value) => handleInputChange("distance", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="Positions (comma-separated)"
+            value={form.positions}
+            onChangeText={(value) => handleInputChange("positions", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="Total Participants"
+            value={form.totalParticipants}
+            onChangeText={(value) => handleInputChange("totalParticipants", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="Wind Speed"
+            value={form.windSpeed}
+            onChangeText={(value) => handleInputChange("windSpeed", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="Wind Direction"
+            value={form.windDirection}
+            onChangeText={(value) => handleInputChange("windDirection", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="Notes"
+            value={form.notes}
+            onChangeText={(value) => handleInputChange("notes", value)}
+          />
 
-        <CustomButton
-          title="Save Changes"
-          onPress={handleSubmit}
-          containerStyles="mt-3"
-          textStyles="text-black"
-        />
-      </SafeAreaView>
-    </SafeAreaProvider>
+          <CustomButton
+            onPress={handleSubmit}
+            title="Save changes"
+            containerStyles="bg-[#FF9B00] mb-5 mt-5 p-2"
+          />
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </ScrollView>
   );
 };
 

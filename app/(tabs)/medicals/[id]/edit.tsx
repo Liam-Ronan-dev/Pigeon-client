@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { View, Text, TextInput, ActivityIndicator } from "react-native";
+import { View, Text, TextInput, ActivityIndicator, ScrollView } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import useAPI from "@/hooks/useAPI";
@@ -74,49 +74,50 @@ const EditRace = () => {
   }
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView className="flex-1 p-4 bg-gray-100">
-        <Text className="text-2xl font-bold text-gray-900 mb-4">Edit Race</Text>
+    <ScrollView className="bg-[#171622]">
+      <SafeAreaProvider>
+        <SafeAreaView className="flex-1 justify-center p-4">
+          <Text className="text-2xl font-bold mb-5 mt-5 text-white">Edit Treatment</Text>
 
-        <TextInput
-          className="border p-2 mb-4"
-          placeholder="Treatment name"
-          value={form.treatmentName}
-          onChangeText={(value) => handleInputChange("treatmentName", value)}
-        />
-        <TextInput
-          className="border p-2 mb-4"
-          placeholder="description"
-          value={form.description}
-          onChangeText={(value) => handleInputChange("description", value)}
-        />
-        <TextInput
-          className="border p-2 mb-4"
-          placeholder="date Administered"
-          value={form.dateAdministered}
-          onChangeText={(value) => handleInputChange("dateAdministered", value)}
-        />
-        <TextInput
-          className="border p-2 mb-4"
-          placeholder="treatment Duration"
-          value={form.treatmentDuration}
-          onChangeText={(value) => handleInputChange("treatmentDuration", value)}
-        />
-        <TextInput
-          className="border p-2 mb-4"
-          placeholder="administered By"
-          value={form.administeredBy}
-          onChangeText={(value) => handleInputChange("administeredBy", value)}
-        />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="Treatment name"
+            value={form.treatmentName}
+            onChangeText={(value) => handleInputChange("treatmentName", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="description"
+            value={form.description}
+            onChangeText={(value) => handleInputChange("description", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="date Administered"
+            value={form.dateAdministered}
+            onChangeText={(value) => handleInputChange("dateAdministered", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="treatment Duration"
+            value={form.treatmentDuration}
+            onChangeText={(value) => handleInputChange("treatmentDuration", value)}
+          />
+          <TextInput
+            className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+            placeholder="administered By"
+            value={form.administeredBy}
+            onChangeText={(value) => handleInputChange("administeredBy", value)}
+          />
 
-        <CustomButton
-          title="Save Changes"
-          onPress={handleSubmit}
-          containerStyles="mt-3"
-          textStyles="text-black"
-        />
-      </SafeAreaView>
-    </SafeAreaProvider>
+          <CustomButton
+            onPress={handleSubmit}
+            title="Save changes"
+            containerStyles="bg-[#FF9B00] mb-5 mt-5 p-2"
+          />
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </ScrollView>
   );
 };
 

@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
-import { View, Text, TextInput, Button, ActivityIndicator } from "react-native";
+import { View, Text, TextInput, Button, ActivityIndicator, ScrollView } from "react-native";
 import { useRouter } from "expo-router";
 import useAPI from "@/hooks/useAPI";
 import { AuthContext } from "@/contexts/AuthContext";
+import CustomButton from "@/components/CustomButton";
 
 export default function Page() {
   const { postRequest, loading, error } = useAPI();
@@ -23,7 +24,7 @@ export default function Page() {
 
   const handleSubmit = () => {
     if (!token) {
-      alert("You must be logged in to create a race.");
+      alert("You must be logged in to create a Treatment.");
       return;
     }
 
@@ -44,49 +45,57 @@ export default function Page() {
   };
 
   return (
-    <View className="flex-1 justify-center p-4">
-      <Text className="text-2xl font-bold mb-4">Create a Medical Treatment</Text>
-      {error && <Text className="text-red-500 mb-4">Error: {error}</Text>}
+    <ScrollView className="bg-[#171622]">
+      <View className="flex-1 justify-center p-4">
+        <Text className="text-2xl font-bold mb-5 mt-5 text-white">Create a Medical Treatment</Text>
+        {error && <Text className="text-red-500 mb-4">Error: {error}</Text>}
 
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="Treatment name"
-        value={form.treatmentName}
-        onChangeText={(value) => handleChange("treatmentName", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="description"
-        value={form.description}
-        onChangeText={(value) => handleChange("description", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="date Administered"
-        value={form.dateAdministered}
-        onChangeText={(value) => handleChange("dateAdministered", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="treatment Duration"
-        value={form.treatmentDuration}
-        onChangeText={(value) => handleChange("treatmentDuration", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="administered By"
-        value={form.administeredBy}
-        onChangeText={(value) => handleChange("administeredBy", value)}
-      />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+          placeholder="Treatment name"
+          value={form.treatmentName}
+          onChangeText={(value) => handleChange("treatmentName", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+          placeholder="description"
+          value={form.description}
+          onChangeText={(value) => handleChange("description", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+          placeholder="date Administered"
+          value={form.dateAdministered}
+          onChangeText={(value) => handleChange("dateAdministered", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+          placeholder="treatment Duration"
+          value={form.treatmentDuration}
+          onChangeText={(value) => handleChange("treatmentDuration", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
+          placeholder="administered By"
+          value={form.administeredBy}
+          onChangeText={(value) => handleChange("administeredBy", value)}
+        />
 
-      <Button title="Create Medical Treatment" onPress={handleSubmit} disabled={loading} />
+        <CustomButton
+          onPress={handleSubmit}
+          title="Create treatment"
+          containerStyles="bg-[#FF9B00] mb-5 mt-5 p-2"
+        />
 
-      {loading && (
-        <View className="mt-4">
-          <ActivityIndicator size="large" color="#0000ff" />
-          <Text className="text-lg font-semibold text-gray-700 mt-2">Creating Medical Treatment...</Text>
-        </View>
-      )}
-    </View>
+        {loading && (
+          <View className="mt-4">
+            <ActivityIndicator size="large" color="#0000ff" />
+            <Text className="text-lg font-semibold text-gray-700 mt-2">
+              Creating Medical Treatment...
+            </Text>
+          </View>
+        )}
+      </View>
+    </ScrollView>
   );
 }

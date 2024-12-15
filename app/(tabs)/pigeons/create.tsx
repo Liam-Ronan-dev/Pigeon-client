@@ -122,55 +122,55 @@ export default function Page() {
         {error && <Text className="text-red-500 mb-4">Error: {error}</Text>}
 
         <TextInput
-          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
           placeholder="Name"
           value={form.name}
           onChangeText={(value) => handleChange("name", value)}
         />
         <TextInput
-          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
           placeholder="Breed"
           value={form.breed}
           onChangeText={(value) => handleChange("breed", value)}
         />
         <TextInput
-          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
           placeholder="Colour"
           value={form.colour}
           onChangeText={(value) => handleChange("colour", value)}
         />
         <TextInput
-          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
           placeholder="Eye Colour"
           value={form.eyeColour}
           onChangeText={(value) => handleChange("eyeColour", value)}
         />
         <TextInput
-          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
           placeholder="Body Type"
           value={form.bodyType}
           onChangeText={(value) => handleChange("bodyType", value)}
         />
         <TextInput
-          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
           placeholder="Ring Number"
           value={form.ringNumber}
           onChangeText={(value) => handleChange("ringNumber", value)}
         />
         <TextInput
-          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
           placeholder="Sex (Cock/Hen)"
           value={form.sex}
           onChangeText={(value) => handleChange("sex", value)}
         />
         <TextInput
-          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
           placeholder="Hatch Date (YYYY-MM-DD)"
           value={form.hatchDate}
           onChangeText={(value) => handleChange("hatchDate", value)}
         />
         <TextInput
-          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-5"
           placeholder="Diet"
           value={form.diet}
           onChangeText={(value) => handleChange("diet", value)}

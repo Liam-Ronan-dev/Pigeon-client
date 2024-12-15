@@ -82,9 +82,9 @@ const RegisterForm = () => {
       {/* Submit Button */}
       <CustomButton
         title="Create an account"
-        textStyles="text-[#fff] text-xl"
+        textStyles="text-xl"
         onPress={handleRegister}
-        containerStyles="bg-[#FF9B00] w-3/4 mb-10"
+        containerStyles="bg-[#FF9B00] w-3/4 mb-10 p-2"
       />
     </View>
   );

@@ -63,10 +63,10 @@ const LoginForm = () => {
       ) : null}
 
       <CustomButton
-        title="Log in"
-        textStyles="text-[#fff] text-xl"
+        title="Login"
+        textStyles="text-xl"
         onPress={handleLogin}
-        containerStyles="bg-[#FF9B00] w-3/4 mb-10 mt-8"
+        containerStyles="bg-[#FF9B00] w-3/4 mb-10 mt-8 p-2"
       />
     </View>
   );

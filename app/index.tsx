@@ -9,8 +9,10 @@ const Index = () => {
     <View className="flex-1 bg-[#171622]">
       <SafeAreaView className="flex-1 px-1 justify-between">
         <View>
-          <Text className="text-center text-white text-4xl mt-10 font-rmono font-bold">SkySprint</Text>
-          <Text className="text-center text-white text-base mt-5 p-2 font-light font-rmono">
+          <Text className="text-center text-white text-4xl mt-10 font-rmono font-bold">
+            SkySprint
+          </Text>
+          <Text className="text-center text-white text-lg mt-5 p-2 font-light font-rmono">
             SkySprint is a modern app for pigeon enthusiasts and racers. Track race history, manage
             medical treatments, and stay organized
           </Text>
@@ -21,9 +23,9 @@ const Index = () => {
         <View className="mb-12 items-center">
           <CustomButton
             title="Login"
-            textStyles="text-[#fff]"
+            textStyles="text-xl"
             onPress={() => router.push("/Login")}
-            containerStyles="bg-[#FF9B00] w-3/4"
+            containerStyles="bg-[#FF9B00] w-3/4 p-2"
           />
         </View>
         <View>

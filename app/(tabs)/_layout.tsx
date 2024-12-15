@@ -115,6 +115,13 @@ export default function TabLayout() {
           href: null,
         }}
       />
+      <Tabs.Screen
+        name="details/[id]/edit"
+        options={{
+          title: 'Details',
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }

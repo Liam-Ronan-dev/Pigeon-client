@@ -4,59 +4,17 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import useAPI from "@/hooks/useAPI";
 import { AuthContext } from "@/contexts/AuthContext";
-import PlaceholderImage from "@/assets/images/unsplash_5WWgv98ijbs.jpg";
 import CustomButton from "@/components/CustomButton";
-
-const FIELD_MAPPINGS = {
-  pigeon: {
-    titleField: "name", // Use "name" for pigeons
-    fields: [
-      { label: "Breed", field: "breed" },
-      { label: "Sex", field: "sex" },
-      { label: "Body Type", field: "bodyType" },
-      { label: "Colour", field: "colour" },
-      { label: "Eye Colour", field: "eyeColour" },
-      { label: "Diet", field: "diet" },
-      { label: "Hatch Date", field: "hatchDate" },
-    ],
-  },
-  raceHistory: {
-    titleField: "raceName", // Use "raceName" for races
-    fields: [
-      { label: "Date", field: "date" },
-      { label: "Distance", field: "distance" },
-      { label: "Positions", field: "positions" },
-      { label: "Total Participants", field: "totalParticipants" },
-      { label: "Wind Speed", field: "windSpeed" },
-      { label: "Wind Direction", field: "windDirection" },
-      { label: "Notes", field: "notes" },
-    ],
-  },
-  medicalTreatment: {
-    titleField: "treatmentName", // Use "treatmentName" for medical treatments
-    fields: [
-      { label: "Treatment Name", field: "treatmentName" },
-      { label: "Description", field: "description" },
-      { label: "Date Administered", field: "dateAdministered" },
-      { label: "treatment Duration", field: "treatmentDuration" },
-      { label: "administered By", field: "administeredBy" },
-    ],
-  },
-};
-
-const TYPE_MAPPINGS = {
-  pigeons: "pigeon",
-  races: "raceHistory", // Explicitly map to `raceHistory`
-  medicals: "medicalTreatment",
-};
+import { FIELD_MAPPINGS, TYPE_MAPPINGS } from "@/config/detailsMappings";
+import { ValidType } from "@/types";
 
 const DynamicDetails = () => {
-  const { id, type } = useLocalSearchParams(); // Get ID and type dynamically from the URL
+  const { id, type } = useLocalSearchParams<{ id: string; type: ValidType }>(); // Get ID and type dynamically from the URL
   const router = useRouter();
   const { token } = useContext(AuthContext);
   const { getRequest, deleteRequest, data, loading, error } = useAPI<{ data: any }>();
 
-  const [details, setDetails] = useState(null);
+  const [details, setDetails] = useState<any>(null);
 
   useEffect(() => {
     if (id && type) {
@@ -117,7 +75,7 @@ const DynamicDetails = () => {
     );
   }
 
-  const { titleField, fields } = FIELD_MAPPINGS[TYPE_MAPPINGS[type] || type] || {};
+  const { titleField, fields } = FIELD_MAPPINGS[TYPE_MAPPINGS[type] as keyof typeof FIELD_MAPPINGS];
 
   return (
     <SafeAreaProvider>
@@ -125,50 +83,54 @@ const DynamicDetails = () => {
         <ScrollView>
           {/* Image */}
           <Image
-            source={details.imageUrl ? { uri: details.imageUrl } : PlaceholderImage}
-            style={{ width: "100%", height: 300 }}
+            source={
+              details.imageUrl
+                ? { uri: details.imageUrl }
+                : require("@/assets/images/unsplash_5WWgv98ijbs.jpg")
+            }
+            style={{ width: "100%", height: 300, resizeMode: "cover" }} // Adjust height here (300px example)
+            className="rounded-b-lg"
           />
 
           {/* Title Section */}
-          <View className="bg-[#292C40] p-4 -mt-6 rounded-t-lg shadow-md">
-            <Text className="text-white text-lg font-bold">
+          <View className="bg-[#292C40] p-5 shadow-md">
+            <Text className="text-white text-2xl font-bold">
               {details[titleField] || "Untitled"}
             </Text>
           </View>
 
           {/* Dynamic Fields */}
-          <View className="bg-[#1E1E2E] px-5 py-6">
+          <View className="bg-[#1E1E2E] px-5 py-6 h-full">
             {fields.map((field) => (
               <View key={field.field} className="flex-row justify-between my-2">
                 <Text className="text-[#9CA3AF]">{field.label}</Text>
-                <Text className="text-white">
+                <Text className="text-[#FF9B00]">
                   {Array.isArray(details[field.field])
                     ? details[field.field].join(", ") // Handle arrays like `positions`
                     : details[field.field] || "N/A"}
                 </Text>
               </View>
             ))}
-          </View>
-
-          {/* Action Buttons */}
-          <View className="flex-row justify-between px-5 py-4">
-            <CustomButton
-              title="Edit"
-              containerStyles="bg-[#FF9B00] flex-1 mr-2"
-              textStyles="text-white"
-              onPress={() =>
-                router.push({
-                  pathname: `/${TYPE_MAPPINGS[type] || type}/[id]/edit`,
-                  params: { id },
-                })
-              }
-            />
-            <CustomButton
-              title="Delete"
-              containerStyles="bg-[#DE4A4A] flex-1 ml-2"
-              textStyles="text-white"
-              onPress={handleDelete}
-            />
+            {/* Action Buttons */}
+            <View className="flex-row justify-between mt-10 gap-5">
+              <CustomButton
+                title="Edit"
+                containerStyles="bg-[#FF9B00] flex-1 p-3"
+                textStyles="text-white"
+                onPress={() =>
+                  router.push({
+                    pathname: "/details/[id]/edit",
+                    params: { id, type: TYPE_MAPPINGS[type] },
+                  })
+                }
+              />
+              <CustomButton
+                title="Delete"
+                containerStyles="bg-[#DE4A4A] flex-1 p-3"
+                textStyles="text-white"
+                onPress={handleDelete}
+              />
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>

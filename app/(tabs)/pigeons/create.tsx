@@ -1,9 +1,19 @@
 import { useState, useContext } from "react";
-import { View, Text, TextInput, Button, Alert, ActivityIndicator, Image } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  Alert,
+  ActivityIndicator,
+  Image,
+  ScrollView,
+} from "react-native";
 import { useRouter } from "expo-router";
 import * as ImagePicker from "expo-image-picker";
 import useAPI from "@/hooks/useAPI";
 import { AuthContext } from "@/contexts/AuthContext";
+import CustomButton from "@/components/CustomButton";
 
 export default function Page() {
   const { postRequest, loading, error } = useAPI();
@@ -106,81 +116,91 @@ export default function Page() {
   };
 
   return (
-    <View className="flex-1 justify-center p-4">
-      <Text className="text-2xl font-bold mb-4">Create a New Pigeon</Text>
-      {error && <Text className="text-red-500 mb-4">Error: {error}</Text>}
+    <ScrollView className="bg-[#171622]">
+      <View className="flex-1 justify-center p-4">
+        <Text className="text-2xl font-bold mb-5 mt-5 text-white">Create a New Pigeon</Text>
+        {error && <Text className="text-red-500 mb-4">Error: {error}</Text>}
 
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="Name"
-        value={form.name}
-        onChangeText={(value) => handleChange("name", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="Breed"
-        value={form.breed}
-        onChangeText={(value) => handleChange("breed", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="Colour"
-        value={form.colour}
-        onChangeText={(value) => handleChange("colour", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="Eye Colour"
-        value={form.eyeColour}
-        onChangeText={(value) => handleChange("eyeColour", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="Body Type"
-        value={form.bodyType}
-        onChangeText={(value) => handleChange("bodyType", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="Ring Number"
-        value={form.ringNumber}
-        onChangeText={(value) => handleChange("ringNumber", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="Sex (Cock/Hen)"
-        value={form.sex}
-        onChangeText={(value) => handleChange("sex", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="Hatch Date (YYYY-MM-DD)"
-        value={form.hatchDate}
-        onChangeText={(value) => handleChange("hatchDate", value)}
-      />
-      <TextInput
-        className="border p-2 mb-4"
-        placeholder="Diet"
-        value={form.diet}
-        onChangeText={(value) => handleChange("diet", value)}
-      />
-
-      {selectedImage && (
-        <Image
-          source={{ uri: selectedImage }}
-          style={{ width: "100%", height: 200, marginBottom: 8 }}
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          placeholder="Name"
+          value={form.name}
+          onChangeText={(value) => handleChange("name", value)}
         />
-      )}
-      <Button title="Upload Image" onPress={handleImageUpload} />
-      <Text>hello</Text>
-      <Button title="Create Pigeon" onPress={handleSubmit} disabled={loading} />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          placeholder="Breed"
+          value={form.breed}
+          onChangeText={(value) => handleChange("breed", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          placeholder="Colour"
+          value={form.colour}
+          onChangeText={(value) => handleChange("colour", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          placeholder="Eye Colour"
+          value={form.eyeColour}
+          onChangeText={(value) => handleChange("eyeColour", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          placeholder="Body Type"
+          value={form.bodyType}
+          onChangeText={(value) => handleChange("bodyType", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          placeholder="Ring Number"
+          value={form.ringNumber}
+          onChangeText={(value) => handleChange("ringNumber", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          placeholder="Sex (Cock/Hen)"
+          value={form.sex}
+          onChangeText={(value) => handleChange("sex", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          placeholder="Hatch Date (YYYY-MM-DD)"
+          value={form.hatchDate}
+          onChangeText={(value) => handleChange("hatchDate", value)}
+        />
+        <TextInput
+          className="w-full bg-[#1E1E2E] rounded-md p-5 text-white mb-3"
+          placeholder="Diet"
+          value={form.diet}
+          onChangeText={(value) => handleChange("diet", value)}
+        />
 
-      {loading && (
-        <View className="mt-4">
-          <ActivityIndicator size="large" color="#0000ff" />
-          <Text className="text-lg font-semibold text-gray-700 mt-2">Creating Pigeon...</Text>
-        </View>
-      )}
-    </View>
+        {selectedImage && (
+          <Image
+            source={{ uri: selectedImage }}
+            style={{ width: "100%", height: 200, marginBottom: 8 }}
+          />
+        )}
+
+        <CustomButton
+          onPress={handleImageUpload}
+          title="Upload Image"
+          containerStyles="bg-[#1E1E2E] mb-5 mt-5 p-2"
+          textStyles="text-[#468FB0]"
+        />
+        <CustomButton
+          onPress={handleSubmit}
+          title="Create pigeon"
+          containerStyles="bg-[#FF9B00] mb-5 mt-5 p-2"
+        />
+        {loading && (
+          <View className="mt-4">
+            <ActivityIndicator size="large" color="#0000ff" />
+            <Text className="text-lg font-semibold text-gray-700 mt-2">Creating Pigeon...</Text>
+          </View>
+        )}
+      </View>
+    </ScrollView>
   );
 }

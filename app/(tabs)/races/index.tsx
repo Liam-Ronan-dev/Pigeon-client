@@ -5,7 +5,7 @@ import useAPI from "@/hooks/useAPI";
 import { Link, router } from "expo-router";
 import CustomButton from "@/components/CustomButton";
 import LinkComponent from "@/components/LinkComponent";
-import ProfileSVG from "@/assets/images/Profile.svg";
+import Profile from "@/components/Profile";
 import SearchSVG from "@/assets/images/Search.svg";
 
 interface Race {
@@ -54,7 +54,7 @@ export default function Tab() {
         {/* Header */}
         <View className="flex-row justify-between items-center mt-4 mb-2 mx-5">
           <Text className="text-2xl font-bold text-white">Your Races</Text>
-          <ProfileSVG />
+          <Profile />
         </View>
 
         {/* Add Button */}

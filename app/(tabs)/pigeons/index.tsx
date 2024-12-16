@@ -1,11 +1,19 @@
 import React, { useEffect } from "react";
-import { View, Text, FlatList, ActivityIndicator, Image, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  Image,
+  TextInput,
+  ScrollView,
+} from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import useAPI from "@/hooks/useAPI";
 import { useRouter } from "expo-router";
 import CustomButton from "@/components/CustomButton";
 import LinkComponent from "@/components/LinkComponent";
-import ProfileSVG from "@/assets/images/Profile.svg";
+import Profile from "@/components/Profile";
 import SearchSVG from "@/assets/images/Search.svg";
 
 interface Pigeon {
@@ -57,7 +65,7 @@ export default function PigeonsIndex() {
         {/* Header */}
         <View className="flex-row justify-between items-center mt-4 mb-2 mx-5">
           <Text className="text-2xl font-bold text-white">Your Pigeons</Text>
-          <ProfileSVG />
+          <Profile />
         </View>
 
         {/* Add Button */}

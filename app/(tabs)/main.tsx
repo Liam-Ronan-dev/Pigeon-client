@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, TextInput, FlatList, TouchableOpacity, ScrollView } from "react-native";
+import React, { useState, useEffect, useContext } from "react";
+import { View, Text, TextInput, TouchableOpacity, ScrollView, Pressable } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import useAPI from "@/hooks/useAPI"; // Custom API hook
 import CardComponent from "@/components/cardComponent"; // Card component for rendering items
-import SearchSVG from "@/assets/images/Search.svg";
-import ProfileSVG from "@/assets/images/Profile.svg";
 import { PILLS } from "@/config/pills";
+import Profile from "@/components/Profile";
+import Search from "@/components/Search";
+import { AuthContext } from "@/contexts/AuthContext";
 
 const Home = () => {
   const [activePill, setActivePill] = useState("Pigeons");
@@ -22,14 +23,6 @@ const Home = () => {
     }
   }, [activePill]);
 
-  const renderDetails = (item: any, fields: string[]): JSX.Element[] => {
-    return fields.map((field) => (
-      <Text key={field} className="text-sm text-[#c7ccd3]">
-        {`${field.charAt(0).toUpperCase() + field.slice(1)}: ${item[field] || "N/A"}`}
-      </Text>
-    ));
-  };
-
   return (
     <SafeAreaProvider>
       <SafeAreaView className="flex-1 bg-[#171622]">
@@ -37,20 +30,13 @@ const Home = () => {
         <View className="flex-row justify-between items-center mt-4 mb-2 mx-5">
           <View>
             <Text className="text-white text-lg font-light">Welcome back</Text>
-            <Text className="text-2xl text-white font-bold">Liam</Text>
+            <Text className="text-2xl text-white font-bold">Guest</Text>
           </View>
-          <ProfileSVG />
+          <Profile />
         </View>
 
         {/* Search Bar */}
-        <View className="flex-row items-center bg-[#1E1E2E] rounded-md px-4 mx-5 py-2 mt-5 mb-4 shadow-md">
-          <TextInput
-            placeholder="Search"
-            placeholderTextColor="#9CA3AF"
-            className="flex-1 text-white text-base p-3"
-          />
-          <SearchSVG />
-        </View>
+        <Search />
 
         {/* Pills */}
         <View className="flex-row justify-between mb-4 mt-5 mx-5">
@@ -77,7 +63,7 @@ const Home = () => {
         ) : error ? (
           <Text className="text-red-500 text-center text-2xl mt-5">Error: {error}</Text>
         ) : (
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={true}>
             {data.map((item: any) => {
               const currentPill = PILLS.find((pill) => pill.name === activePill);
               const fields = currentPill?.fields;

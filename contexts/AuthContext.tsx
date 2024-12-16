@@ -2,6 +2,7 @@ import React, { createContext } from "react";
 import { useStorageState } from "@/hooks/useStorageState";
 import { AuthContextType } from "@/types";
 import axios from "axios";
+import { useRouter } from "expo-router";
 
 // Create a context with default values
 export const AuthContext = createContext<AuthContextType>({
@@ -18,7 +19,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
      loading is initially true until the token is retrieved from storage.
      We don't specifically need loading here, but it's available if needed. */
   const [[loading, storedToken], setStoredToken] = useStorageState("authToken");
-
+  const router = useRouter();
   const API_BASE_URL = "https://pigeon-api-ca-1.vercel.app";
 
   // A function to handle user registration

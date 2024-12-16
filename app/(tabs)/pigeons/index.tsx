@@ -109,7 +109,7 @@ export default function PigeonsIndex() {
                   <Text className="text-sm text-[#FF9B00]">{item.sex}</Text>
                   <Text className="text-sm text-[#FF9B00]">{item.colour}</Text>
                 </View>
-                <LinkComponent type="pigeon" item={item} />
+                <LinkComponent type="pigeons" item={item} />
               </View>
             </View>
           )}

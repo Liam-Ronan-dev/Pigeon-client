@@ -109,7 +109,7 @@ export default function Tab() {
 
                   <Text className="text-sm text-[#FF9B00]">{item.totalParticipants}</Text>
                 </View>
-                <LinkComponent type="pigeon" item={item} />
+                <LinkComponent type="races" item={item} />
               </View>
             </View>
           )}

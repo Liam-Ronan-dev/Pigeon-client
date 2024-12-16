@@ -24,3 +24,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 4. Fix date formats
 5. check former border colour
 6. Turn search into a component
+
+
+# Working
+Edit 

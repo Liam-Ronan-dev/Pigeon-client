@@ -103,7 +103,7 @@ export default function Tab() {
                 <View>
                   <Text className="text-sm text-[#FF9B00]">{item.administeredBy}</Text>
                 </View>
-                <LinkComponent type="pigeon" item={item} />
+                <LinkComponent type="medicals" item={item} />
               </View>
             </View>
           )}

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image, ScrollView, Alert } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import useAPI from "@/hooks/useAPI";
@@ -46,6 +46,7 @@ const DynamicDetails = () => {
 
       const endpoint = `https://pigeon-api-ca-1.vercel.app/api/${singularType}/${id}`;
       deleteRequest(endpoint, token, () => {
+        Alert.alert("Success", "Resource Deleted successfully!");
         router.push(`/${type}`); // Navigate back to the original list
       });
     }
@@ -119,7 +120,7 @@ const DynamicDetails = () => {
                 textStyles="text-white"
                 onPress={() =>
                   router.push({
-                    pathname: "/details/[id]/edit",
+                    pathname: `/${type}/[id]/edit`,
                     params: { id, type: TYPE_MAPPINGS[type] },
                   })
                 }

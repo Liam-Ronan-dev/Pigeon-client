@@ -1,4 +1,5 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
 export default function TabLayout() {
@@ -34,7 +35,7 @@ export default function TabLayout() {
         name="pigeons/index"
         options={{
           title: "Pigeons",
-          tabBarIcon: ({ color }) => <FontAwesome size={20} name="heart" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name="bird" size={24} color="white" />,
         }}
       />
       <Tabs.Screen
@@ -111,14 +112,14 @@ export default function TabLayout() {
       <Tabs.Screen
         name="details/[id]/index"
         options={{
-          title: 'Details',
+          title: "Details",
           href: null,
         }}
       />
       <Tabs.Screen
         name="details/[id]/edit"
         options={{
-          title: 'Details',
+          title: "Details",
           href: null,
         }}
       />

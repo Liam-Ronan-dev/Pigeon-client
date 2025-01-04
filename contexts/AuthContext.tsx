@@ -64,6 +64,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   // Simply clears the token from storage
   const logout = async () => {
     setStoredToken(null);
+    router.push("/Login");
   };
 
   // Return the AuthContext.Provider with the token and auth functions as its value

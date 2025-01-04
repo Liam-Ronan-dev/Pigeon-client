@@ -183,12 +183,7 @@ export default function Page() {
           />
         )}
 
-        <CustomButton
-          onPress={handleImageUpload}
-          title="Upload Image"
-          containerStyles="bg-[#1E1E2E] mb-5 mt-5 p-2"
-          textStyles="text-[#468FB0]"
-        />
+        <Button title="Upload Image" onPress={handleImageUpload} />
         <CustomButton
           onPress={handleSubmit}
           title="Create pigeon"
